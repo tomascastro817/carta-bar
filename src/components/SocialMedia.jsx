@@ -3,7 +3,7 @@ import { FaFacebook, FaWhatsapp, FaInstagram } from "react-icons/fa";
 const SocialMedia = () => {
   // Redes sociales del bar
   const facebookUrl = "https://www.facebook.com/barvintage"; // Reemplaza con el enlace de la página de Facebook del bar
-  const whatsappUrl = "https://twitter.com/barvintage"; // Reemplaza con el enlace de la cuenta de Twitter del bar
+  const whatsappUrl = "https://wa.me/+543862512795"; // Reemplaza con el enlace de la cuenta de WhatsApp del bar
   const instagramUrl = "https://www.instagram.com/barvintage"; // Reemplaza con el enlace de Instagram del bar
 
   return (
