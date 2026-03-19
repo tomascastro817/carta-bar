@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import Categoria from './Categoria';
@@ -8,12 +8,23 @@ const Carta = () => {
   const categorias = ['Packs Premium', 'Pulidos', 'Motos', 'Preventa', 'Especiales'];
 
   const [activeCategory, setActiveCategory] = useState('Packs Premium'); // Abrir Packs por defecto
+  const sectionRefs = useRef({});
 
   const toggleCategory = (categoria) => {
     if (activeCategory === categoria) {
       setActiveCategory(null);
     } else {
       setActiveCategory(categoria);
+      // Wait for the Framer Motion collapse/expand animation (400ms) to complete
+      // so the DOM height settles before calculating the scroll position.
+      setTimeout(() => {
+        if (sectionRefs.current[categoria]) {
+          const yOffset = -20;
+          const element = sectionRefs.current[categoria];
+          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 450);
     }
   };
 
@@ -26,14 +37,15 @@ const Carta = () => {
 
         return (
           <motion.div
+            ref={(el) => (sectionRefs.current[categoria] = el)}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
             key={categoria}
-            className="rounded-2xl shadow-xl mb-6 bg-zinc-900 border border-zinc-800/80 overflow-hidden mx-4 lg:mx-12 group"
+            className="rounded-2xl shadow-xl mb-6 bg-zinc-900 border border-zinc-800/80 overflow-hidden mx-4 lg:mx-12 group scroll-mt-6"
           >
             <button
-              className="flex items-center w-full text-left px-8 py-6 bg-zinc-900 text-zinc-100 text-xl font-bold hover:bg-zinc-800/80 transition-all duration-300 relative overflow-hidden"
+              className="flex items-center w-full text-left px-8 py-6 bg-zinc-900 text-zinc-100 text-xl font-bold hover:bg-zinc-800/80 transition-all duration-300 relative overflow-hidden focus:outline-none"
               onClick={() => toggleCategory(categoria)}
             >
               {activeCategory === categoria && (
