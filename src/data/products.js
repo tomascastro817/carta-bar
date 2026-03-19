@@ -49,7 +49,7 @@ const products = [
     descripcion: 'Detallado interior, Acondicionado interior, Detallado exterior, Descontaminado de pintura, Pulido profundo (corrección 2 a 3 pasos), Tratamiento cerámico Vonixx v-paint (3 años de proteccion)',
     precioAuto: 350000,
     precioCamioneta: 450000,
-    categoria: 'Pulidos',
+    categoria: 'Tratamientos',
     imagen: pulidos,
   },
   {
@@ -67,7 +67,7 @@ const products = [
     descripcion: 'Desengrase de motor, Eliminación de suciedad y residuos, Limpieza de plásticos y componentes, Acondicionado de superficies, Terminación prolija y protegida',
     precioAuto: 45000,
     precioCamioneta: 55000,
-    categoria: 'Especiales',
+    categoria: 'Adicionales',
     imagen: motor,
   },
   {
@@ -76,7 +76,7 @@ const products = [
     descripcion: 'Eliminación de opacidad y amarillamiento, Pulido de superficie, Restauración del brillo original, Mejora en la iluminación nocturna, Protección final',
     precioAuto: 45000,
     precioCamioneta: 50000,
-    categoria: 'Especiales',
+    categoria: 'Adicionales',
     imagen: opticas,
   },
   {
@@ -85,7 +85,7 @@ const products = [
     descripcion: 'Aspirado completo, Lavado profundo de butacas y alfombras, Eliminación de manchas difíciles, Neutralización de olores, Secado controlado',
     precioAuto: 80000,
     precioCamioneta: 100000,
-    categoria: 'Especiales',
+    categoria: 'Adicionales',
     imagen: tapizado,
   },
   {
@@ -103,7 +103,7 @@ const products = [
     descripcion: 'Detallado interior, Acondicionado interior, Detallado exterior, Descontaminado de pintura, Pulido profundo (corrección 2 a 3 pasos), Cera soft99 fusso coat (poteccion 12 meses)',
     precioAuto: 280000,
     precioCamioneta: 340000,
-    categoria: 'Pulidos',
+    categoria: 'Tratamientos',
     imagen: acrilico,
   },
   {
@@ -112,7 +112,7 @@ const products = [
     descripcion: 'Detallado interior, Acondicionado interior, Detallado exterior, Descontaminado de pintura, Abrillantado (corrección 1 pasos), Cera soft99 (poteccion 3 meses)',
     precioAuto: 120000,
     precioCamioneta: 150000,
-    categoria: 'Pulidos',
+    categoria: 'Tratamientos',
     imagen: abrillantado,
   }
 ];

@@ -35,22 +35,20 @@ const Producto = ({ producto }) => {
       <div className="relative bg-zinc-900 rounded-3xl flex flex-col h-full overflow-hidden z-10">
         {imagen && (
           <div className="h-96 w-full overflow-hidden relative bg-zinc-950/20">
-            <div className="absolute inset-0 bg-zinc-950/40 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
             <div className="w-full h-full p-2 flex justify-center items-center">
               <img
                 src={imagen}
                 alt={nombre}
-                className="w-full h-full object-cover object-center rounded-2xl transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                className="w-full h-full object-cover object-center rounded-2xl transition-transform duration-1000 group-hover:scale-105"
               />
             </div>
-            <div className="absolute top-4 right-4 z-20">
+            <div className="absolute top-4 right-4 z-20 pointer-events-none">
               {nivel && (
                 <span className={`px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-[0.2em] bg-zinc-950/80 backdrop-blur-md border border-zinc-700/50 shadow-lg ${textColor}`}>
                   {nivel}
                 </span>
               )}
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent z-10"></div>
           </div>
         )}
 
