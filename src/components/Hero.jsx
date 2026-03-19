@@ -69,19 +69,22 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-black text-white uppercase tracking-[0.2em] mb-4 drop-shadow-2xl"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-wider md:tracking-[0.2em] mb-4 drop-shadow-2xl leading-tight md:leading-snug max-w-5xl"
           >
-            Elevando la
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">Estética Automotriz</span>
+            Haz que tu coche
+            <br className="hidden md:block" />
+            {' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">
+              sea detallado por los mejores
+            </span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="text-zinc-400 font-sans tracking-widest text-sm md:text-base max-w-lg mt-2"
+            className="text-zinc-400 font-sans tracking-widest text-xs sm:text-sm md:text-base max-w-lg mt-2 leading-relaxed"
           >
-            El estándar definitivo en cuidado y protección vehicular
+            Detallista móvil profesional que presta servicio en Puerto Madryn y alrededores.
           </motion.p>
 
           <motion.div
