@@ -1,12 +1,12 @@
-import { FaFacebook, FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { FaTiktok, FaWhatsapp, FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
 import logo from "../assets/logo.jpeg";
 
 const SocialMedia = () => {
   // Redes sociales del bar
-  const facebookUrl = "https://www.facebook.com/barvintage"; // Reemplaza con el enlace de la página de Facebook del bar
-  const whatsappUrl = "https://wa.me/+543862512795"; // Reemplaza con el enlace de la cuenta de WhatsApp del bar
-  const instagramUrl = "https://www.instagram.com/barvintage"; // Reemplaza con el enlace de Instagram del bar
+  const tiktokUrl = "https://www.tiktok.com/@triplex_detailing?_r=1&_t=ZS-94pJGzBrpQK"; // Reemplaza con el enlace del TikTok del bar/negocio
+  const whatsappUrl = "https://wa.me/+542804849875"; // Reemplaza con el enlace de la cuenta de WhatsApp del bar
+  const instagramUrl = "https://www.instagram.com/triplex_detailing_"; // Reemplaza con el enlace de Instagram del bar
 
   return (
     <motion.div
@@ -44,12 +44,12 @@ const SocialMedia = () => {
       <div className="flex justify-center space-x-10 pb-2">
         <motion.a
           whileHover={{ y: -5, scale: 1.1 }}
-          href={facebookUrl}
+          href={tiktokUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-4 rounded-full bg-zinc-800/40 hover:bg-zinc-800 transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-zinc-700/50 group hover:border-blue-500/50 hover:shadow-blue-500/20"
+          className="p-4 rounded-full bg-zinc-800/40 hover:bg-zinc-800 transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-zinc-700/50 group hover:border-zinc-300/50 hover:shadow-zinc-300/20"
         >
-          <FaFacebook className="text-zinc-500 group-hover:text-blue-500 text-3xl transition-colors" />
+          <FaTiktok className="text-zinc-500 group-hover:text-zinc-200 text-3xl transition-colors" />
         </motion.a>
         <motion.a
           whileHover={{ y: -5, scale: 1.1 }}

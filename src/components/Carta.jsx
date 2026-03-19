@@ -5,7 +5,7 @@ import Categoria from './Categoria';
 import products from '../data/products';
 
 const Carta = () => {
-  const categorias = ['Packs Premium', 'Pulidos', 'Preventa', 'Especiales'];
+  const categorias = ['Packs Premium', 'Pulidos', 'Motos', 'Preventa', 'Especiales'];
 
   const [activeCategory, setActiveCategory] = useState('Packs Premium'); // Abrir Packs por defecto
 

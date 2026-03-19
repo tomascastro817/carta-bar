@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaWhatsapp } from 'react-icons/fa';
 
 const Producto = ({ producto }) => {
-  const { nombre, descripcion, precioAuto, precioCamioneta, imagen, nivel } = producto;
+  const { nombre, descripcion, precioAuto, precioCamioneta, categoria, imagen, nivel } = producto;
 
   // Determinar color de acento según el nivel
   let accentColor = "from-zinc-500 to-zinc-400";
@@ -34,13 +34,13 @@ const Producto = ({ producto }) => {
 
       <div className="relative bg-zinc-900 rounded-3xl flex flex-col h-full overflow-hidden z-10">
         {imagen && (
-          <div className="h-72 w-full overflow-hidden relative bg-zinc-950/20">
+          <div className="h-96 w-full overflow-hidden relative bg-zinc-950/20">
             <div className="absolute inset-0 bg-zinc-950/40 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
-            <div className="w-full h-full p-2">
+            <div className="w-full h-full p-2 flex justify-center items-center">
               <img
                 src={imagen}
                 alt={nombre}
-                className="w-full h-full object-cover rounded-2xl transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                className="w-full h-full object-cover object-center rounded-2xl transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
               />
             </div>
             <div className="absolute top-4 right-4 z-20">
@@ -58,23 +58,36 @@ const Producto = ({ producto }) => {
           <h3 className="text-2xl font-display font-black text-zinc-50 mb-4 uppercase tracking-[0.1em] drop-shadow-md">
             {nombre}
           </h3>
-          <p className="text-sm md:text-base text-zinc-400/90 mb-8 flex-grow leading-loose font-light">
-            {descripcion}
-          </p>
+          <ul className="text-sm md:text-base text-zinc-400/90 mb-8 flex-grow leading-relaxed font-light list-disc pl-4 space-y-1.5 marker:text-zinc-600">
+            {descripcion.split(',').map((item, index) => (
+              <li key={index}>{item.trim().replace(/\.$/, '')}</li>
+            ))}
+          </ul>
 
           <div className="flex flex-col gap-3 mt-auto pt-6 border-t border-zinc-800/80">
-            <div className="flex justify-between items-end">
-              <span className="text-xs uppercase font-bold text-zinc-500 tracking-[0.2em]">Auto</span>
-              <span className={`text-2xl font-black tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] ${textColor}`}>
-                ${precioAuto.toLocaleString('es-AR')}
-              </span>
-            </div>
-            <div className="flex justify-between items-end">
-              <span className="text-xs uppercase font-bold text-zinc-500 tracking-[0.2em]">Camioneta</span>
-              <span className={`text-2xl font-black tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] ${textColor}`}>
-                ${precioCamioneta.toLocaleString('es-AR')}
-              </span>
-            </div>
+            {categoria === 'Motos' ? (
+              <div className="flex justify-between items-end">
+                <span className="text-xs uppercase font-bold text-zinc-500 tracking-[0.2em]">Moto</span>
+                <span className={`text-2xl font-black tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] ${textColor}`}>
+                  ${precioAuto.toLocaleString('es-AR')}
+                </span>
+              </div>
+            ) : (
+              <>
+                <div className="flex justify-between items-end">
+                  <span className="text-xs uppercase font-bold text-zinc-500 tracking-[0.2em]">Auto</span>
+                  <span className={`text-2xl font-black tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] ${textColor}`}>
+                    ${precioAuto.toLocaleString('es-AR')}
+                  </span>
+                </div>
+                <div className="flex justify-between items-end">
+                  <span className="text-xs uppercase font-bold text-zinc-500 tracking-[0.2em]">Camioneta</span>
+                  <span className={`text-2xl font-black tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] ${textColor}`}>
+                    ${precioCamioneta.toLocaleString('es-AR')}
+                  </span>
+                </div>
+              </>
+            )}
           </div>
 
           <a
@@ -101,6 +114,7 @@ Producto.propTypes = {
     descripcion: PropTypes.string.isRequired,
     precioAuto: PropTypes.number.isRequired,
     precioCamioneta: PropTypes.number.isRequired,
+    categoria: PropTypes.string.isRequired,
     imagen: PropTypes.string,
     nivel: PropTypes.string,
   }).isRequired,

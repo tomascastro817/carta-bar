@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import heroImg from '../assets/hero.webp';
 import heroImg2 from '../assets/hero2.webp';
 import heroImg3 from '../assets/hero3.webp';
-
+import heroImg4 from '../assets/hero4.webp';
 const Hero = () => {
   return (
     <div className="relative bg-zinc-950 font-display">
@@ -51,6 +51,16 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/30"></div>
             </div>
           </SwiperSlide>
+          <SwiperSlide>
+            <div
+              className="h-full bg-cover bg-bottom relative"
+              style={{
+                backgroundImage: `url(${heroImg4})`,
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/30"></div>
+            </div>
+          </SwiperSlide>
         </Swiper>
 
         {/* Hero Overlay Text */}
@@ -73,6 +83,23 @@ const Hero = () => {
           >
             El estándar definitivo en cuidado y protección vehicular
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className="mt-8 pointer-events-auto"
+          >
+            <div className="flex items-center gap-3 bg-zinc-950/80 backdrop-blur-md border border-amber-500/30 px-6 py-3 rounded-full shadow-[0_0_20px_rgba(251,191,36,0.15)]">
+              <div className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+              </div>
+              <span className="text-amber-400 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">
+                Servicio a Domicilio
+              </span>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>
