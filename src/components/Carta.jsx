@@ -29,7 +29,22 @@ const Carta = () => {
   };
 
   return (
-    <div className="pb-16 pt-8 font-sans">
+    <div className="pb-4 pt-4 font-sans">
+      {/* Título de la sección */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-12 px-4"
+      >
+        <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-widest drop-shadow-lg font-display">
+          Nuestros <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">Servicios</span>
+        </h2>
+        <div className="w-24 h-1 bg-amber-500 mx-auto mt-5 rounded-full shadow-[0_0_15px_rgba(251,191,36,0.5)]"></div>
+        <p className="text-zinc-500 font-light mt-4 text-sm md:text-base tracking-wide max-w-md mx-auto">Selecciona una categoría para ver el detalle</p>
+      </motion.div>
+
       {categorias.map((categoria, index) => {
         const productosPorCategoria = products.filter(
           (producto) => producto.categoria === categoria
