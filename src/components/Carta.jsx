@@ -1,57 +1,71 @@
-// src/components/Carta.jsx
-
 import { useState } from 'react';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa'; // Importa los íconos de React Icons
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
 import Categoria from './Categoria';
 import products from '../data/products';
 
 const Carta = () => {
-  const categorias = ['Burgers', 'Drinks', 'Sandwich']; // Puedes agregar más categorías aquí
+  const categorias = ['Packs Premium', 'Pulidos', 'Preventa', 'Especiales'];
 
-  // Usamos useState para manejar la categoría activa
-  const [activeCategory, setActiveCategory] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('Packs Premium'); // Abrir Packs por defecto
 
   const toggleCategory = (categoria) => {
     if (activeCategory === categoria) {
-      setActiveCategory(null); // Si la categoría ya está activa, la cerramos
+      setActiveCategory(null);
     } else {
-      setActiveCategory(categoria); // Si no, la abrimos
+      setActiveCategory(categoria);
     }
   };
 
   return (
-    <div className=""> {/* Aumentamos el espacio entre categorías */}
-      {categorias.map((categoria) => {
-        // Filtramos los productos por categoría
+    <div className="pb-16 pt-8 font-sans">
+      {categorias.map((categoria, index) => {
         const productosPorCategoria = products.filter(
           (producto) => producto.categoria === categoria
         );
 
         return (
-          <div key={categoria} className="rounded-lg shadow-lg">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
+            key={categoria}
+            className="rounded-2xl shadow-xl mb-6 bg-zinc-900 border border-zinc-800/80 overflow-hidden mx-4 lg:mx-12 group"
+          >
             <button
-              className="flex items-center w-full text-left px-6 py-3 bg-white text-black text-lg font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300"
+              className="flex items-center w-full text-left px-8 py-6 bg-zinc-900 text-zinc-100 text-xl font-bold hover:bg-zinc-800/80 transition-all duration-300 relative overflow-hidden"
               onClick={() => toggleCategory(categoria)}
             >
-              <span className="mr-4 font-semibold">{categoria}</span>
+              {activeCategory === categoria && (
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-400 to-amber-600 shadow-[0_0_10px_rgba(251,191,36,0.5)]"></div>
+              )}
+              <span className="mr-4 tracking-[0.15em] uppercase drop-shadow-sm">{categoria}</span>
               <span className="ml-auto">
                 {activeCategory === categoria ? (
-                  <FaChevronUp className="text-black text-xl" />
+                  <FaChevronUp className="text-amber-500 text-2xl transition-transform" />
                 ) : (
-                  <FaChevronDown className="text-black text-xl" />
+                  <FaChevronDown className="text-zinc-500 text-2xl transition-transform group-hover:text-amber-500/50" />
                 )}
               </span>
             </button>
 
-            {activeCategory === categoria && (
-              <div className="bg-white p-2 rounded-lg shadow-md">
-                <Categoria
-                  nombre={categoria}
-                  productos={productosPorCategoria}
-                />
-              </div>
-            )}
-          </div>
+            <AnimatePresence>
+              {activeCategory === categoria && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.4, ease: "anticipate" }}
+                  className="bg-zinc-950/80 px-4 md:px-8 py-8 border-t border-zinc-800/80"
+                >
+                  <Categoria
+                    nombre={categoria}
+                    productos={productosPorCategoria}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         );
       })}
     </div>

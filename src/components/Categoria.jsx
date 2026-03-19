@@ -21,7 +21,8 @@ Categoria.propTypes = {
       id: PropTypes.number.isRequired,
       nombre: PropTypes.string.isRequired,
       descripcion: PropTypes.string.isRequired,
-      precio: PropTypes.number.isRequired,
+      precioAuto: PropTypes.number.isRequired,
+      precioCamioneta: PropTypes.number.isRequired,
     })
   ).isRequired, // Validar que 'productos' es un array de objetos con la estructura esperada
 };

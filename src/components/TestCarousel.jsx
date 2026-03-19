@@ -1,10 +1,11 @@
 // src/components/TestCarousel.jsx
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 
 const TestCarousel = () => {
   return (
-    <Swiper loop={true} autoplay={{ delay: 500 }}>
+    <Swiper modules={[Autoplay]} loop={true} autoplay={{ delay: 500 }}>
       <SwiperSlide>
         <div style={{ background: 'red', height: '300px' }}>Slide 1</div>
       </SwiperSlide>
