@@ -90,12 +90,12 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mt-8 pointer-events-auto"
           >
-            <div className="flex items-center gap-3 bg-zinc-950/80 backdrop-blur-md border border-amber-500/30 px-6 py-3 rounded-full shadow-[0_0_20px_rgba(251,191,36,0.15)]">
-              <div className="relative flex h-3 w-3">
+            <div className="flex items-center gap-2 md:gap-3 bg-zinc-950/80 backdrop-blur-md border border-amber-500/30 px-4 py-2.5 md:px-6 md:py-3 rounded-full shadow-[0_0_20px_rgba(251,191,36,0.15)] max-w-xs mx-auto">
+              <div className="relative flex h-2.5 w-2.5 md:h-3 md:w-3 flex-shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 md:h-3 md:w-3 bg-amber-500"></span>
               </div>
-              <span className="text-amber-400 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">
+              <span className="text-amber-400 text-[10px] md:text-sm font-bold uppercase tracking-[0.1em] md:tracking-[0.2em] whitespace-nowrap">
                 Servicio a Domicilio
               </span>
             </div>
