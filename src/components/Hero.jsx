@@ -64,7 +64,7 @@ const Hero = () => {
         </Swiper>
 
         {/* Hero Overlay Text */}
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pointer-events-none pb-24 md:pb-12">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

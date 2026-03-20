@@ -2,6 +2,7 @@ import './App.css'
 import Carta from './components/Carta'
 import Hero from './components/Hero'
 import SocialMedia from './components/SocialMedia'
+import PaymentMethods from './components/PaymentMethods'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Hero />
         <SocialMedia className="" />
         <Carta />
+        <PaymentMethods />
 
         <footer className="mt-auto border-t border-zinc-800/50 pt-8 pb-4 text-center px-6 mb-4">
           <p className="text-zinc-500 text-sm font-light tracking-wide">
